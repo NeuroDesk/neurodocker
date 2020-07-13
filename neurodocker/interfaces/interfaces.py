@@ -54,6 +54,14 @@ class ANTs(_BaseInterface):
     def __init__(self, *args, **kwargs):
         super().__init__(self._name, *args, **kwargs)
 
+class ASHS(_BaseInterface):
+    """Create instance of ASHS object."""
+
+    _name = 'ashs'
+    _pretty_name = 'ASHS'
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(self._name, *args, **kwargs)
 
 class Convert3D(_BaseInterface):
     """Create instance of Convert3D object."""

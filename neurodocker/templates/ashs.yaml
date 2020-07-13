@@ -1,0 +1,25 @@
+# Instructions to install Automatic Segmentation of Hippocampal Subfields (ASHS).
+#
+# Repository: https://github.com/pyushkevich/ashs.git
+# Website: https://www.nitrc.org/projects/ashs/
+
+# package version for apt and yum identified aiming for centos6,7,8, debian 8,9,10 and ubuntu up to 20.04 using https://pkgs.org
+
+generic:
+  binaries:
+    urls:
+      "2.0.0": https://www.nitrc.org/frs/download.php/10887/ashs-fastashs_2.0.0_07202018.zip
+      # Ubuntu 16.04: 
+    dependencies:
+      apt: 
+      yum: 
+    env:
+      PATH: "{{ ashs.install_path }}/bin:$PATH"
+      ASHS_ROOT: "{{ ashs.install_path }}"
+    instructions: |
+      {{ ashs.install_dependencies() }}
+      echo "Downloading ashs ..."
+      mkdir -p {{ ashs.install_path }}
+      curl {{ ashs.curl_opts }} -o /tmp/ashs-fastashs_2.0.0_07202018.zip {{ ashs.binaries_url }}
+      unzip /tmp/ashs-fastashs_2.0.0_07202018.zip -d {{ ashs.install_path }}
+

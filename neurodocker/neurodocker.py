@@ -137,6 +137,9 @@ def _add_generate_common_arguments(parser):
         "Install ANTs. Valid keys are version (required), method"
         " install_path, cmake_opts, and make_opts. Version can be a "
         " git commit hash if building from source.",
+        "ashs":
+        "Install Automatic Segmentation of Hippocampal Subfields (ASHS). Valid keys are version (required), method,"
+        " install_path, and exclude_paths.",
         "convert3d":
         "Install Convert3D. Valid keys are version (required),"
         " method, and install_path.",
