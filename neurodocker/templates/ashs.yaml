@@ -18,5 +18,6 @@ generic:
       mkdir -p {{ ashs.install_path }}
       curl {{ ashs.curl_opts }} -o /tmp/ashs-fastashs_2.0.0_07202018.zip {{ ashs.binaries_url }}
       unzip /tmp/ashs-fastashs_2.0.0_07202018.zip -d {{ ashs.install_path }}
+      mkdir -p /atlas_ashs_atlas_upennpmc_20161128
       curl {{ ashs.curl_opts }} http://ashs.projects.nitrc.org/atlas_upennpmc/ashs_atlas_upennpmc_20161128.tar \
       | tar -xz -C /atlas_ashs_atlas_upennpmc_20161128 --strip-components 1
