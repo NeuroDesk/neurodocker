@@ -11,8 +11,8 @@ generic:
       "2.0.0": https://www.nitrc.org/frs/download.php/10887/ashs-fastashs_2.0.0_07202018.zip
       # Ubuntu 16.04: 
     dependencies:
-      apt: 
-      yum: 
+      apt: curl, zip
+      yum: curl, zip
     env:
       PATH: "{{ ashs.install_path }}/bin:$PATH"
       ASHS_ROOT: "{{ ashs.install_path }}"
