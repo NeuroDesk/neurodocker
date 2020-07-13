@@ -14,8 +14,8 @@ generic:
       apt: unzip
       yum: unzip
     env:
-      PATH: "{{ ashs.install_path }}/bin:$PATH"
-      ASHS_ROOT: "{{ ashs.install_path }}"
+      PATH: "{{ ashs.install_path }}/ashs-fastashs_beta/bin:$PATH"
+      ASHS_ROOT: "{{ ashs.install_path }}/ashs-fastashs_beta/"
     instructions: |
       {{ ashs.install_dependencies() }}
       echo "Downloading ashs ..."
