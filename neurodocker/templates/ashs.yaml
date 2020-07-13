@@ -10,16 +10,14 @@ generic:
     urls:
       "2.0.0": https://www.nitrc.org/frs/download.php/10887/ashs-fastashs_2.0.0_07202018.zip
       # Ubuntu 16.04: 
-    dependencies:
-      apt: unzip
-      yum: unzip
     env:
       PATH: "{{ ashs.install_path }}/ashs-fastashs_beta/bin:$PATH"
       ASHS_ROOT: "{{ ashs.install_path }}/ashs-fastashs_beta/"
     instructions: |
-      {{ ashs.install_dependencies() }}
       echo "Downloading ashs ..."
       mkdir -p {{ ashs.install_path }}
       curl {{ ashs.curl_opts }} -o /tmp/ashs-fastashs_2.0.0_07202018.zip {{ ashs.binaries_url }}
       unzip /tmp/ashs-fastashs_2.0.0_07202018.zip -d {{ ashs.install_path }}
+      curl {{ ashs.curl_opts }} http://ashs.projects.nitrc.org/atlas_upennpmc/ashs_atlas_upennpmc_20161128.tar | tar -xz -C /atlas_ashs_atlas_upennpmc_20161128 --strip-components 1
+
 
