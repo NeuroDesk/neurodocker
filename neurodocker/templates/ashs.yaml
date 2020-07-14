@@ -3,13 +3,11 @@
 # Repository: https://github.com/pyushkevich/ashs.git
 # Website: https://www.nitrc.org/projects/ashs/
 
-# package version for apt and yum identified aiming for centos6,7,8, debian 8,9,10 and ubuntu up to 20.04 using https://pkgs.org
-
 generic:
   binaries:
     urls:
       "2.0.0": https://www.nitrc.org/frs/download.php/10887/ashs-fastashs_2.0.0_07202018.zip
-      # Ubuntu 16.04: 
+      # Ubuntu 16.04: works
     env:
       PATH: "{{ ashs.install_path }}/ashs-fastashs_beta/bin:$PATH"
       ASHS_ROOT: "{{ ashs.install_path }}/ashs-fastashs_beta"
@@ -18,3 +16,9 @@ generic:
       mkdir -p {{ ashs.install_path }}
       curl {{ ashs.curl_opts }} -o /tmp/ashs-fastashs_2.0.0_07202018.zip {{ ashs.binaries_url }}
       unzip /tmp/ashs-fastashs_2.0.0_07202018.zip -d {{ ashs.install_path }}
+      {% if ashs.version == "2.0.0" -%}
+      echo "Downloading atlas compatible with version 2.0.0 ..."
+      mkdir /atlas_ashs_atlas_magdeburg_7t_20180416
+      curl {{ ashs.curl_opts }} http://ashs.projects.nitrc.org/atlas_magdeburg/ashs_atlas_magdeburg_7t_20180416.tgz \
+            | tar -xz -C /atlas_ashs_atlas_magdeburg_7t_20180416 --strip-components 1 
+      {% endif -%}
