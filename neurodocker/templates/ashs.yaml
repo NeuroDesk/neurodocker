@@ -8,10 +8,14 @@ generic:
     urls:
       "2.0.0": https://www.nitrc.org/frs/download.php/10887/ashs-fastashs_2.0.0_07202018.zip
       # Ubuntu 16.04: works
+    dependencies:
+        apt: libxt6
+        yum: libXt
     env:
       PATH: "{{ ashs.install_path }}/ashs-fastashs_beta/bin:$PATH"
       ASHS_ROOT: "{{ ashs.install_path }}/ashs-fastashs_beta"
     instructions: |
+      {{ ashs.install_dependencies() }}
       echo "Downloading ashs ..."
       mkdir -p {{ ashs.install_path }}
       curl {{ ashs.curl_opts }} -o /tmp/ashs-fastashs_2.0.0_07202018.zip {{ ashs.binaries_url }}
