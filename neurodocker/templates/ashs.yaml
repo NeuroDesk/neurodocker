@@ -6,7 +6,7 @@
 generic:
   binaries:
     urls:
-      "1.0.0": https://www.nitrc.org/frs/download.php/10262/ashs-fastashs-20170915.zip//?i_agree=1&download_now=1
+      "1.0.0": https://www.dropbox.com/s/ijkxmopv088e4iu/ashs-fastashs-20170915.zip?dl=0
       # Ubuntu 16.04: 
       "2.0.0": https://www.nitrc.org/frs/download.php/10887/ashs-fastashs_2.0.0_07202018.zip
       # Ubuntu 16.04: works, but some atlases are not working yet
