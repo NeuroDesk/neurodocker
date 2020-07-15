@@ -6,7 +6,7 @@
 generic:
   binaries:
     urls:
-      "1.0.0": "https://www.nitrc.org/frs/download.php/10262/ashs-fastashs-20170915.zip//?i_agree=1&download_now=1"
+      "1.0.0": https://www.nitrc.org/frs/download.php/10262/ashs-fastashs-20170915.zip//?i_agree=1&download_now=1
       # Ubuntu 16.04: 
       "2.0.0": https://www.nitrc.org/frs/download.php/10887/ashs-fastashs_2.0.0_07202018.zip
       # Ubuntu 16.04: works, but some atlases are not working yet
@@ -20,7 +20,7 @@ generic:
       {{ ashs.install_dependencies() }}
       echo "Downloading ashs ..."
       mkdir -p {{ ashs.install_path }}
-      curl {{ ashs.curl_opts }} -o /tmp/ashs.zip {{ ashs.binaries_url }}
+      curl {{ ashs.curl_opts }} -o /tmp/ashs.zip "{{ ashs.binaries_url }}"
       unzip /tmp/ashs.zip -d {{ ashs.install_path }}
       {% if ashs.version == "1.0.0" -%}
       echo "Downloading atlas compatible with version 1.0.0 ..."
