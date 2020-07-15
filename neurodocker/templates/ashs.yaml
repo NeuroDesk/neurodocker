@@ -26,11 +26,11 @@ generic:
       echo "Downloading atlas compatible with version 1.0.0 ..."
       mkdir /ashs_atlas_upennpmc_20170810
       curl {{ ashs.curl_opts }} http://ashs.projects.nitrc.org/atlas_upennpmc/ashs_atlas_upennpmc_20170810.tar \
-            | tar -xz -C /ashs_atlas_upennpmc_20170810 --strip-components 1 
+            | tar -xz -C /ashs_atlas_upennpmc_20170810
       {% endif -%}
       {% if ashs.version == "2.0.0" -%}
       echo "Downloading atlas compatible with version 2.0.0 ..."
       mkdir /ashs_atlas_magdeburg_7t_20180416
       curl {{ ashs.curl_opts }} http://ashs.projects.nitrc.org/atlas_magdeburg/ashs_atlas_magdeburg_7t_20180416.tgz \
-            | tar -xz -C /ashs_atlas_magdeburg_7t_20180416 --strip-components 1 
+            | tar -xz -C /ashs_atlas_magdeburg_7t_20180416
       {% endif -%}
