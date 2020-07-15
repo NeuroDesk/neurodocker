@@ -22,13 +22,13 @@ generic:
       mkdir -p {{ ashs.install_path }}
       curl {{ ashs.curl_opts }} -o /tmp/ashs.zip "{{ ashs.binaries_url }}"
       unzip /tmp/ashs.zip -d {{ ashs.install_path }}
-      {% if ashs.version == "1.0.0" -%}
+      {% if ashs.version == "1.0.0x" -%}
       echo "Downloading atlas compatible with version 1.0.0 ..."
       mkdir /ashs_atlas_upennpmc_20170810
       curl {{ ashs.curl_opts }} http://ashs.projects.nitrc.org/atlas_upennpmc/ashs_atlas_upennpmc_20170810.tar \
             | tar -x -C /ashs_atlas_upennpmc_20170810
       {% endif -%}
-      {% if ashs.version == "2.0.0" -%}
+      {% if ashs.version == "2.0.0x" -%}
       echo "Downloading atlas compatible with version 2.0.0 ..."
       mkdir /ashs_atlas_magdeburg_7t_20180416
       curl {{ ashs.curl_opts }} http://ashs.projects.nitrc.org/atlas_magdeburg/ashs_atlas_magdeburg_7t_20180416.tgz \
