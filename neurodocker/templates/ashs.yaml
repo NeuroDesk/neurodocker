@@ -28,7 +28,7 @@ generic:
       curl {{ ashs.curl_opts }} http://ashs.projects.nitrc.org/atlas_upennpmc/ashs_atlas_upennpmc_20170810.tar \
       | tar -x -C /ashs_atlas_upennpmc_20170810
       {% endif -%}
-      {% if ashs.version == "2.0.0x" -%}
+      {% if ashs.version == "2.0.0" -%}
       ln -s /opt/ashs-fastashs_beta/ {{ ashs.install_path }}
       echo "Downloading atlas compatible with version 2.0.0 ..."
       mkdir /ashs_atlas_magdeburg_7t_20180416
