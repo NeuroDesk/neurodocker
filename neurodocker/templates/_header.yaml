@@ -5,7 +5,7 @@ generic:
   custom:
     dependencies:
       apt: apt-utils bzip2 ca-certificates curl locales unzip
-      yum: bzip2 ca-certificates curl localedef unzip epel-release
+      yum: bzip2 ca-certificates curl unzip epel-release
     env:
       LANG: "en_US.UTF-8"
       LC_ALL: "en_US.UTF-8"
@@ -17,9 +17,6 @@ generic:
       sed -i -e 's/# {{ _header._env['LC_ALL'] }} UTF-8/{{ _header._env['LC_ALL'] }} UTF-8/' /etc/locale.gen
       dpkg-reconfigure --frontend=noninteractive locales
       update-locale LANG="{{ _header._env['LANG'] }}"
-      {%- elif _header.pkg_manager == "yum" %}
-      localedef -i {{ _header._env['LC_ALL'].split('.')[0] }} -f {{ _header._env['LC_ALL'].split('.')[1] }} {{ _header._env['LC_ALL'] }}
-      {%- endif %}
       chmod 777 /opt && chmod a+s /opt
       mkdir -p /neurodocker
       if [ ! -f "$ND_ENTRYPOINT" ]; then
