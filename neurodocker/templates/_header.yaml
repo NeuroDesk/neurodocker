@@ -17,6 +17,7 @@ generic:
       sed -i -e 's/# {{ _header._env['LC_ALL'] }} UTF-8/{{ _header._env['LC_ALL'] }} UTF-8/' /etc/locale.gen
       dpkg-reconfigure --frontend=noninteractive locales
       update-locale LANG="{{ _header._env['LANG'] }}"
+      {%- endif %}
       chmod 777 /opt && chmod a+s /opt
       mkdir -p /neurodocker
       if [ ! -f "$ND_ENTRYPOINT" ]; then
