@@ -46,12 +46,12 @@ generic:
         curl ed g++ gcc git libglib2.0-dev libglu1-mesa-dev libgsl-dev
         libmotif-dev libnetpbm10-dev libxext-dev libxi-dev libxpm-dev libxt-dev
         m4 make libxmu-headers mesa-common-dev r-base r-base-dev tcsh
-        zlib1g-dev libcurl4-openssl-dev
+        zlib1g-dev libcurl4-openssl-dev libssl-dev
       yum: >
         compat-gcc-34 expat-devel gcc gcc-c++ gcc-gfortran git glib2-devel
         gsl-devel libXext-devel libXi-devel libXmu-devel libXpm-devel
         libXt-devel m4 make mesa-libGL-devel mesa-libGLU-devel netpbm-devel
-        openmotif-devel R R-devel tcsh zlib-devel libcurl-devel
+        openmotif-devel R R-devel tcsh zlib-devel libcurl-devel openssl-devel
       debs:
         - http://mirrors.kernel.org/debian/pool/main/libx/libxp/libxp6_1.0.2-2_amd64.deb
         - http://snapshot.debian.org/archive/debian-security/20160113T213056Z/pool/updates/main/libp/libpng/libpng12-0_1.2.49-1%2Bdeb7u2_amd64.deb
