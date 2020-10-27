@@ -51,7 +51,7 @@ generic:
         compat-gcc-34 expat-devel gcc gcc-c++ gcc-gfortran git glib2-devel
         gsl-devel libXext-devel libXi-devel libXmu-devel libXpm-devel
         libXt-devel m4 make mesa-libGL-devel mesa-libGLU-devel netpbm-devel
-        openmotif-devel R R-devel tcsh zlib-devel
+        openmotif-devel R R-devel tcsh zlib-devel epel-release
       debs:
         - http://mirrors.kernel.org/debian/pool/main/libx/libxp/libxp6_1.0.2-2_amd64.deb
         - http://snapshot.debian.org/archive/debian-security/20160113T213056Z/pool/updates/main/libp/libpng/libpng12-0_1.2.49-1%2Bdeb7u2_amd64.deb
