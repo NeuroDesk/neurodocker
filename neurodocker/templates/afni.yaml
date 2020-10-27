@@ -17,7 +17,7 @@ generic:
     dependencies:
       apt: >
         ed gsl-bin libglu1-mesa-dev libglib2.0-0 libglw1-mesa libgomp1
-        libjpeg62 libxm4 multiarch-support netpbm tcsh xfonts-base xvfb
+        libjpeg62 libxm4 netpbm tcsh xfonts-base xvfb
       yum: >
         ed gsl libGLU libgomp libpng12 libXp libXpm netpbm-progs openmotif
         tcsh xorg-x11-fonts-misc xorg-x11-server-Xvfb
