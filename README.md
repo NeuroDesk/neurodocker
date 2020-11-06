@@ -97,6 +97,9 @@ Note: it is not yet possible to minimize Docker containers using the _Neurodocke
 | **MRtrix3**                 | version\*        | 3.0                                                                                                                                                 |
 |                             | method           | binaries (default)                                                                                                                                  |
 |                             | install_path     | Installation path. Default `/opt/mrtrix3-{version}`.                                                                                                |
+| **MRtrix3tissue**           | version\*        | 5.2.8                                                                                                                                                |
+|                             | method           | source                                                                                                                                 |
+|                             | install_path     | Installation path. Default `/opt/mrtrix3tissue-{version}`.                                                                                                |
 | **NeuroDebian**             | os_codename\*    | Codename of the operating system (e.g., stretch, zesty).                                                                                            |
 |                             | server\*         | Server to download NeuroDebian packages from. Choose the one closest to you. See `neurodocker generate docker --help` for the full list of servers. |
 |                             | full             | If true (default), use non-free sources. If false, use libre sources.                                                                               |

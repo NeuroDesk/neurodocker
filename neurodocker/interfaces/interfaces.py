@@ -289,6 +289,15 @@ class MRtrix3(_BaseInterface):
     def __init__(self, *args, **kwargs):
         super().__init__(self._name, *args, **kwargs)
 
+class MRtrix3tissue(_BaseInterface):
+    """Create instance of MRtrix3tissue object."""
+
+    _name = "mrtrix3tissue"
+    _pretty_name = "MRtrix3tissue"
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(self._name, *args, **kwargs)        
+
 
 class NDFreeze(_BaseInterface):
     """Create instance of NDFreeze object."""
