@@ -1,0 +1,25 @@
+# Instructions to install MRtrix3tissue.
+#
+# Repository: https://github.com/3Tissue/MRtrix3Tissue.git
+# Website: https://3tissue.github.io/
+# Documentation: https://3tissue.github.io/doc/general.html
+
+generic:
+  source:
+    dependencies:
+      apt: g++ gcc git libeigen3-dev make python python-numpy zlib1g-dev mesa-common-dev libglu1-mesa qt5-default libqt5svg5-dev wget libqt5opengl5-dev libqt5opengl5 libqt5gui5 libqt5core5a libtiff5-dev libtiff5 libfftw3-dev libpng12-dev dbus-x11
+      # tested in Ubuntu 16.04
+      yum: clang eigen3-devel gcc-c++ git make numpy python zlib-devel fftw-devel libtiff-devel qt5-qtbase qt5-qtbase-devel qt5-qtsvg-devel mesa-libGLU libpng-devel
+    env:
+      PATH: "{{ mrtrix3tissue.install_path }}/bin:$PATH"
+    instructions: |
+      {{ mrtrix3tissue.install_dependencies() }}
+      mkdir -p {{ mrtrix3tissue.install_path }}
+      git clone https://github.com/3Tissue/MRtrix3Tissue.git {{ mrtrix3tissue.install_path }}
+      cd {{ mrtrix3tissue.install_path }}
+      {% if mrtrix3tissue.version != "master" and mrtrix3tissue.version != "latest" -%}
+      git checkout tags/{{ mrtrix3tissue.version }} -b {{ mrtrix3tissue.version }}
+      {% endif -%}
+      ./configure
+      echo "Compiling MRtrix3tissue ..."
+      ./build

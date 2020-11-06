@@ -164,6 +164,8 @@ def _add_generate_common_arguments(parser):
         " install_path.",
         "mrtrix3": "Install MRtrix3. Valid keys are version (required),"
         " method, and install_path",
+        "mrtrix3tissue": "Install MRtrix3tissue. Valid keys are version (required),"
+        " method, and install_path",
         "ndfreeze": "Use the NeuroDebian command `nd_freeze` to freeze the apt"
         " sources to a certain date. This will only have an effect"
         " on Debian and NeuroDebian APT sources.",
