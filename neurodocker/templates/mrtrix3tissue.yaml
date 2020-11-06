@@ -15,7 +15,7 @@ generic:
     instructions: |
       {{ mrtrix3tissue.install_dependencies() }}
       mkdir -p {{ mrtrix3tissue.install_path }}
-      git clone https://github.com/3Tissue/MRtrix3Tissue.git MRtrix3Tissue {{ mrtrix3tissue.install_path }}
+      git clone https://github.com/3Tissue/MRtrix3Tissue.git {{ mrtrix3tissue.install_path }}
       cd {{ mrtrix3tissue.install_path }}
       {% if mrtrix3tissue.version != "master" and mrtrix3tissue.version != "latest" -%}
       git checkout tags/{{ mrtrix3tissue.version }} -b {{ mrtrix3tissue.version }}
