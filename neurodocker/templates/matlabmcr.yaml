@@ -27,8 +27,8 @@ generic:
       2012a: https://ssd.mathworks.com/supportfiles/MCR_Runtime/R2012a/MCR_R2012a_glnxa64_installer.zip
       2010a: https://dl.dropbox.com/s/zz6me0c3v4yq5fd/MCR_R2010a_glnxa64_installer.bin
     dependencies:
-      apt: bc libncurses5 libxext6 libxmu6 libxpm-dev libxt6
-      yum: bc libXext.x86_64 libXmu libXpm libXt.x86_64
+      apt: bc libncurses5 libxext6 libxmu6 libxpm-dev libxt6 openjdk-8-jre
+      yum: bc libXext.x86_64 libXmu libXpm libXt.x86_64 java-1.6.0-openjdk
       debs:
         - http://mirrors.kernel.org/debian/pool/main/libx/libxp/libxp6_1.0.2-2_amd64.deb
     env:
