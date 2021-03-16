@@ -65,6 +65,14 @@ def _add_generate_common_arguments(parser):
         help="Copy files into container. Use format <src>... <dest>",
     )
     p.add_argument(
+        "--copy-from",
+        action=OrderedArgs,
+        nargs="+",
+        help=("Copy files from another image into container."
+            "Use format <image> <src>... <dest>"
+        ),
+    )
+    p.add_argument(
         "--install",
         action=OrderedArgs,
         nargs="+",
