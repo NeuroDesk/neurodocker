@@ -29,7 +29,7 @@ def test_generate():
         " --label FOO=BAR BAZ=CAT"
         " --copy relpath/to/file.txt /tmp/file.txt"
         " --add relpath/to/file2.txt /tmp/file2.txt"
-        " --copy-from --from=ubuntu:17.04 /etc/bash.bashrc /tmp/file3.txt"
+        " --copy-from ubuntu:17.04 /etc/bash.bashrc /tmp/file3.txt"
         " --cmd '--arg1' '--arg2'"
         " --workdir /home"
         " --install git"
