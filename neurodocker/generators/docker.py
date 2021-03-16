@@ -132,6 +132,30 @@ class _DockerfileImplementations:
         return _dockerfile_base_add_copy(list_srcs_dest, "COPY")
 
     @staticmethod
+    def copy_from(list_args):
+        """Return Dockerfile `COPY --from=` instruction to add files or 
+        directories from one Docker image to another for multi-stage builds.
+
+        See https://docs.docker.com/develop/develop-images/multistage-build/.
+
+        Parameters
+        ----------
+        list_args : list of str
+            First item is the base build image (appended to `--from=`). The
+            last item is the destination in the Docker image for these file or 
+            directories. The rest of the items are paths on local machine to
+            be copied into the Docker container.
+        """
+        list_srcs_dest = list_args[1:]
+        if len(list_srcs_dest) < 2:
+            raise ValueError("At least two paths must be provided.")
+
+        srcs = list_srcs_dest[:-1]
+        dest = list_srcs_dest[-1]
+        srcs = '", "'.join(srcs)
+        return 'COPY --from={} ["{}", "{}"]'.format(list_args[0], srcs, dest)
+
+    @staticmethod
     def entrypoint(entrypoint):
         """Return Dockerfile ENTRYPOINT instruction to set image entrypoint.
 
