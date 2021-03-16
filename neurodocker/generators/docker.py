@@ -133,7 +133,7 @@ class _DockerfileImplementations:
 
     @staticmethod
     def copy_from(list_args):
-        """Return Dockerfile `COPY --from=` instruction to add files or 
+        """Return Dockerfile `COPY --from=` instruction to add files or
         directories from one Docker image to another for multi-stage builds.
 
         See https://docs.docker.com/develop/develop-images/multistage-build/.
@@ -142,7 +142,7 @@ class _DockerfileImplementations:
         ----------
         list_args : list of str
             First item is the base build image (appended to `--from=`). The
-            last item is the destination in the Docker image for these file or 
+            last item is the destination in the Docker image for these file or
             directories. The rest of the items are paths on local machine to
             be copied into the Docker container.
         """
@@ -325,17 +325,21 @@ class Dockerfile(ContainerSpecGenerator):
         self._add_header()
 
     def _add_header(self):
+        # Loop through instructions to find the last base image
+        for ii, spec in enumerate(self._specs["instructions"]):
+            if spec[0] == "base":
+                base_index = ii
         # If ndfreeze is requested, the order of instructions should be:
         # base, arg noninteractive frontend, ndfreeze, header, entrypoint.
         offset = 1 if self._specs["instructions"][1][0] == "ndfreeze" else 0
-        self._specs["instructions"].insert(1, ("user", "root"))
+        self._specs["instructions"].insert(base_index + 1, ("user", "root"))
         self._specs["instructions"].insert(
-            2, ("arg", {"DEBIAN_FRONTEND": "noninteractive"})
+            base_index + 2, ("arg", {"DEBIAN_FRONTEND": "noninteractive"})
         )
         kwds = {"version": "generic", "method": "custom"}
-        self._specs["instructions"].insert(3 + offset, ("_header", kwds))
+        self._specs["instructions"].insert(base_index + 3 + offset, ("_header", kwds))
         self._specs["instructions"].insert(
-            4 + offset, ("entrypoint", "/neurodocker/startup.sh")
+            base_index + 4 + offset, ("entrypoint", "/neurodocker/startup.sh")
         )
 
     def _ispecs_to_dockerfile_str(self):
