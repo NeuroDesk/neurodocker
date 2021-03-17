@@ -46,7 +46,12 @@ def _list_of_kv(kv):
 def _add_generate_common_arguments(parser):
     p = parser
 
-    p.add_argument("-b", "--base", help="Base Docker image. E.g., debian:stretch")
+    p.add_argument(
+        "-b",
+        "--base",
+        action=OrderedArgs,
+        help="Base Docker image. E.g., debian:stretch",
+    )
     p.add_argument(
         "-p", "--pkg-manager", choices={"apt", "yum"}, help="Linux package manager."
     )
@@ -63,6 +68,15 @@ def _add_generate_common_arguments(parser):
         action=OrderedArgs,
         nargs="+",
         help="Copy files into container. Use format <src>... <dest>",
+    )
+    p.add_argument(
+        "--copy-from",
+        action=OrderedArgs,
+        nargs="+",
+        help=(
+            "Copy files from another image into container."
+            "Use format <image> <src>... <dest>"
+        ),
     )
     p.add_argument(
         "--install",
@@ -148,11 +162,9 @@ def _add_generate_common_arguments(parser):
         " provided by Neurodocker.",
         "fsl": "Install FSL. Valid keys are version (required), method,"
         " install_path, and exclude_paths.",
-        "itksnap":
-        "Install itksnap. Valid keys are version (required), method,"
+        "itksnap": "Install itksnap. Valid keys are version (required), method,"
         " install_path, and exclude_paths.",
-        "matlabmcr":
-        "Install Matlab Compiler Runtime. Valid keys are version,"
+        "matlabmcr": "Install Matlab Compiler Runtime. Valid keys are version,"
         " method, and install_path",
         "miniconda": "Install Miniconda. Valid keys are install_path,"
         " env_name, conda_install, pip_install, conda_opts,"
@@ -342,7 +354,9 @@ def parse_args(args):
         "docker",
         "singularity",
     }:
-        _validate_generate_args(namespace)
+        pass
+        # TODO Fix generate args validations
+        # _validate_generate_args(namespace)
 
     return namespace
 
