@@ -41,6 +41,9 @@ class _SingularityRecipeImplementations:
     def copy(self, list_srcs_dest):
         self._singobj._files.append(list_srcs_dest)
 
+    def copy_from(self, list_args):
+        raise NotImplementedError("--copy-from not available for singularity")
+
     def install(self, pkgs, pkg_manager, opts=None):
         self._singobj._post.append(_install(pkgs, pkg_manager))
 

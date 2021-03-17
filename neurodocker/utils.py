@@ -47,7 +47,8 @@ def _namespace_to_specs(namespace):
     """Return dictionary of specifications from namespace."""
     from neurodocker.generators.common import _installation_implementations
 
-    instructions = [("base", namespace.base)]
+    # instructions = [("base", namespace.base)]
+    instructions = []
 
     try:
         for arg in namespace.ordered_args:
@@ -69,10 +70,7 @@ def _namespace_to_specs(namespace):
             _string_vals_to_bool(options)
             _string_vals_to_list(options)
 
-    specs = {
-        "pkg_manager": namespace.pkg_manager,
-        "instructions": instructions,
-    }
+    specs = {"pkg_manager": namespace.pkg_manager, "instructions": instructions}
 
     # Add nd_freeze
     nd_freeze_idx = _get_index_of_tuple_in_instructions(

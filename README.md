@@ -122,6 +122,7 @@ Note: it is not yet possible to minimize Docker containers using the _Neurodocke
 usage: neurodocker generate docker [-h] [-b BASE] [-p {apt,yum}]
                                    [--add-to-entrypoint ADD_TO_ENTRYPOINT]
                                    [--copy COPY [COPY ...]]
+                                   [--copy-from COPY [COPY ...]]
                                    [--install INSTALL [INSTALL ...]]
                                    [--entrypoint ENTRYPOINT]
                                    [-e ENV [ENV ...]] [-r RUN]
@@ -150,6 +151,9 @@ optional arguments:
                         which is the container's default entrypoint.
   --copy COPY [COPY ...]
                         Copy files into container. Use format <src>... <dest>
+  --copy-from COPY [COPY --from=...]
+                        Copy files from another image into container.
+                        Use format <image> <src>... <dest>
   --install INSTALL [INSTALL ...]
                         Install system packages with apt-get or yum, depending
                         on the package manager specified.
